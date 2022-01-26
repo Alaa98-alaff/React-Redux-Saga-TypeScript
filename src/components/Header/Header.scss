@@ -1,0 +1,16 @@
+.header {
+  position: relative;
+  max-width: 144rem;
+  height: 7.6rem;
+  background-color: #1ea4ce;
+  margin: auto;
+
+  .logo {
+    position: absolute;
+    width: 14.125rem;
+    height: 4rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
