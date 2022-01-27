@@ -1,8 +1,10 @@
+@import "../../index.scss";
+
 .header {
   position: relative;
   max-width: 144rem;
   height: 7.6rem;
-  background-color: #1ea4ce;
+  background-color: $main-blue;
   margin: auto;
 
   .logo {

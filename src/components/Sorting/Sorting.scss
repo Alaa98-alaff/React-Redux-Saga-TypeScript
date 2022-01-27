@@ -1,3 +1,5 @@
+@import "../../index.scss";
+
 .sorting-container {
   position: relative;
   margin-top: 11.5rem;
@@ -8,7 +10,7 @@
   &__title {
     position: absolute;
     top: -3rem;
-    color: #697488;
+    color: $titles-color;
     font-weight: 600;
   }
 }

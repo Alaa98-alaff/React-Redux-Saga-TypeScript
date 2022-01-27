@@ -1,11 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import "./index.scss";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(phone) {
+    font-size: 55%;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 50%;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 40%;
+  }
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  background-color: $body-background;
+}
+
 .main {
   width: 132rem;
   margin: auto;
 }
 
 .left-sidebar {
+  position: relative;
   width: 29.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.575);
+  border-radius: 1rem;
 }
