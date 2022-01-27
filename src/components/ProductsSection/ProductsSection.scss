@@ -1,0 +1,39 @@
+@import "../../index.scss";
+
+.main-section {
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
+}
+
+.section-title {
+  margin-top: 3.836rem;
+  font-size: 2rem;
+  color: #6f6f6f;
+}
+
+.item-types {
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+
+  &__mug,
+  &__shirt {
+    width: 6rem;
+    height: 3rem;
+    margin-right: 0.8rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: $main-blue;
+  }
+
+  &__mug:hover,
+  &__shirt:hover {
+    background-color: rgb(226, 217, 217);
+  }
+}
+
+.products-section {
+  background-color: #fff;
+  width: 60.8rem;
+  height: 100.8rem;
+}

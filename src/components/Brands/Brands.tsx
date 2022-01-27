@@ -4,8 +4,8 @@ import Checkbox from "@mui/material/Checkbox";
 
 const Brands: React.FC = () => {
   return (
-    <>
-      <p className="brands-container__title">Brands</p>
+    <div className="main-brands">
+      <p className="main-brands__title">Brands</p>
       <div className="brands-container">
         <div className="brands-container__brand-search-container">
           <input
@@ -95,7 +95,7 @@ const Brands: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

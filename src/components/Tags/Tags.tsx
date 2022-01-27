@@ -3,8 +3,8 @@ import Checkbox from "@mui/material/Checkbox";
 
 const Tags: React.FC = () => {
   return (
-    <>
-      <p className="tags-container__title">Tags</p>
+    <div className="main-tags">
+      <p className="main-tags__title">Tags</p>
       <div className="tags-container">
         <div className="tags-container__brand-search-container">
           <input
@@ -94,7 +94,7 @@ const Tags: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
