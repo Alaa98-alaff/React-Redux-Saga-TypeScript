@@ -3,6 +3,7 @@ import "./App.scss";
 import Brands from "./components/Brands/Brands";
 import Header from "./components/Header/Header";
 import Sorting from "./components/Sorting/Sorting";
+import Tags from "./components/Tags/Tags";
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
         <div className="left-sidebar">
           <Sorting />
           <Brands />
+          <Tags />
         </div>
       </div>
     </div>

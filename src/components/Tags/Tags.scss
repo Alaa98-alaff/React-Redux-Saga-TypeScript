@@ -1,0 +1,59 @@
+@import "../../index.scss";
+
+.tags-container {
+  position: relative;
+  margin-top: 9rem;
+  width: 100%;
+  max-height: 27.4rem;
+  background-color: #fff;
+  overflow-y: auto;
+
+  &__title {
+    position: absolute;
+    top: 75.5rem;
+    left: 0rem;
+    color: $titles-color;
+    font-weight: 600;
+  }
+
+  &__brand-search-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 2.4rem;
+    justify-content: center;
+
+    .tags-input {
+      width: 24.8rem;
+      height: 4.8rem;
+      border: 0.3rem solid $titles-color;
+      padding: 1.5rem;
+      font-size: 1.4rem;
+      color: $titles-color;
+    }
+  }
+}
+
+.tags-types {
+  width: 80%;
+  height: 100%;
+  padding: 2.5rem;
+  padding-top: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  &__type {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    .checkbox {
+      margin-left: -1rem;
+    }
+
+    .type-title {
+      text-align: left;
+    }
+  }
+}
