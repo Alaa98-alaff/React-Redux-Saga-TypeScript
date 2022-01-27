@@ -1,4 +1,5 @@
 import "./ProductsSection.scss";
+import ProductCard from "../ProductCard/ProductCard";
 
 const ProductsSection: React.FC = () => {
   return (
@@ -8,7 +9,27 @@ const ProductsSection: React.FC = () => {
         <button className="item-types__mug">mug</button>
         <button className="item-types__shirt">shirt</button>
       </div>
-      <div className="products-section"></div>;
+      <div className="products-section">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </div>
     </div>
   );
 };
