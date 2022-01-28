@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.scss";
+import dispatch from "./redux/dispatch";
+import * as actionTypes from "./redux/actionTypes";
 import Brands from "./components/Brands/Brands";
 import Header from "./components/Header/Header";
 import Sorting from "./components/Sorting/Sorting";
 import Tags from "./components/Tags/Tags";
 import ProductsSection from "./components/ProductsSection/ProductsSection";
+import itemsReducer from "./redux/reducers/itemsData";
 
 const App: React.FC = () => {
+  useEffect(() => {
+    dispatch(actionTypes.ITEMS_REQUEST, null);
+  }, []);
+
   return (
     <div>
       <Header />

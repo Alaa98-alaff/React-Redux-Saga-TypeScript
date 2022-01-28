@@ -1,6 +1,7 @@
 @import "../../index.scss";
 
 .productcard-container {
+  position: relative;
   width: 12.4rem;
   height: 22.5rem;
 
@@ -40,12 +41,13 @@
     height: 2.2rem;
     border: none;
     background-color: $main-blue;
-    margin-top: 0.55rem;
     border-radius: 0.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
     color: #fff;
+    position: absolute;
+    bottom: 0;
   }
 }
