@@ -1,8 +1,41 @@
 import "./Brands.scss";
-// import Checkbox from "@mui/material/Checkbox";
 import Checkbox from "@mui/material/Checkbox";
+import { connect } from "react-redux";
+import { useEffect } from "react";
 
-const Brands: React.FC = () => {
+type Props = {
+  companies: Array<object>;
+  items: Array<object>;
+};
+
+const Brands: React.FC<Props> = ({ companies, items }) => {
+  console.log(companies);
+  const brandType = () => {
+    if (companies) {
+      const brands = companies.map((company: any) => {
+        const companiesNumber = items?.filter(
+          (item: any) => item.manufacturer === company.slug
+        );
+
+        return (
+          <div className="brands-types__type" key={company.account}>
+            <Checkbox
+              className="checkbox"
+              sx={{ "& .MuiSvgIcon-root": { fontSize: "3.1rem" } }}
+              // checked={}
+              // onChange={}
+              inputProps={{ "aria-label": "controlled" }}
+            />
+            <div className="type-title">
+              {company.name} ({companiesNumber.length})
+            </div>
+          </div>
+        );
+      });
+      return brands;
+    }
+  };
+
   return (
     <div className="main-brands">
       <p className="main-brands__title">Brands</p>
@@ -20,83 +53,25 @@ const Brands: React.FC = () => {
           <div className="brands-types__type">
             <Checkbox
               className="checkbox"
-              sx={{ "& .MuiSvgIcon-root": { fontSize: "2.8rem" } }}
+              sx={{ "& .MuiSvgIcon-root": { fontSize: "3.1rem" } }}
               // checked={}
               // onChange={}
               inputProps={{ "aria-label": "controlled" }}
             />
-            <div className="type-title">test</div>
+            <div className="type-title">All</div>
           </div>
-
-          <div className="brands-types__type">
-            <Checkbox
-              className="checkbox"
-              sx={{ "& .MuiSvgIcon-root": { fontSize: "2.8rem" } }}
-              // checked={}
-              // onChange={}
-              inputProps={{ "aria-label": "controlled" }}
-            />{" "}
-            <div className="type-title">test</div>
-          </div>
-
-          <div className="brands-types__type">
-            <Checkbox
-              className="checkbox"
-              sx={{ "& .MuiSvgIcon-root": { fontSize: "2.8rem" } }}
-              // checked={}
-              // onChange={}
-              inputProps={{ "aria-label": "controlled" }}
-            />
-            <div className="type-title">test</div>
-          </div>
-
-          <div className="brands-types__type">
-            <Checkbox
-              className="checkbox"
-              sx={{ "& .MuiSvgIcon-root": { fontSize: "2.8rem" } }}
-              // checked={}
-              // onChange={}
-              inputProps={{ "aria-label": "controlled" }}
-            />
-            <div className="type-title">test</div>
-          </div>
-
-          <div className="brands-types__type">
-            <Checkbox
-              className="checkbox"
-              sx={{ "& .MuiSvgIcon-root": { fontSize: "2.8rem" } }}
-              // checked={}
-              // onChange={}
-              inputProps={{ "aria-label": "controlled" }}
-            />
-            <div className="type-title">test</div>
-          </div>
-
-          <div className="brands-types__type">
-            <Checkbox
-              className="checkbox"
-              sx={{ "& .MuiSvgIcon-root": { fontSize: "2.8rem" } }}
-              // checked={}
-              // onChange={}
-              inputProps={{ "aria-label": "controlled" }}
-            />
-            <div className="type-title">test</div>
-          </div>
-
-          <div className="brands-types__type">
-            <Checkbox
-              className="checkbox"
-              sx={{ "& .MuiSvgIcon-root": { fontSize: "2.8rem" } }}
-              // checked={}
-              // onChange={}
-              inputProps={{ "aria-label": "controlled" }}
-            />
-            <div className="type-title">test</div>
-          </div>
+          {brandType()}
         </div>
       </div>
     </div>
   );
 };
 
-export default Brands;
+const mapStateToProps = (state: any) => {
+  return {
+    companies: state.companiesReducer.companies,
+    items: state.itemsReducer.items,
+  };
+};
+
+export default connect(mapStateToProps)(Brands);

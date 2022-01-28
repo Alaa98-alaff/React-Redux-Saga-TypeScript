@@ -15,7 +15,6 @@ const initialState = {
 
 const itemsReducer = (state: itemsState = initialState, action: Action) => {
   const { type, payload } = action;
-
   if (type === actionTypes.ITEMS_DATA) {
     return {
       ...state,

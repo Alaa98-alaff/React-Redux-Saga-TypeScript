@@ -33,7 +33,7 @@ export const getCompaniesDataSaga = function* (action: Action) {
   try {
     const { type, payload } = action;
     const data: object = yield call(Api.companiesData);
-    yield put(actionData(actionTypes.ITEMS_DATA, data));
+    yield put(actionData(actionTypes.COMPANIES_DATA, data));
   } catch (e) {
     console.log(e);
   }

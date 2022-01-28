@@ -7,7 +7,6 @@ type Props = {
 };
 
 const ProductsSection: React.FC<Props> = ({ items }) => {
-  console.log(items?.slice(0, 16));
   return (
     <div className="main-section">
       <h4 className="section-title">Products</h4>
@@ -19,7 +18,9 @@ const ProductsSection: React.FC<Props> = ({ items }) => {
         {items
           ? items
               ?.slice(0, 16)
-              .map((el: any) => <ProductCard name={el.name} price={el.price} />)
+              .map((el: any) => (
+                <ProductCard key={el.added} name={el.name} price={el.price} />
+              ))
           : null}
       </div>
     </div>

@@ -12,6 +12,7 @@ import itemsReducer from "./redux/reducers/itemsData";
 const App: React.FC = () => {
   useEffect(() => {
     dispatch(actionTypes.ITEMS_REQUEST, null);
+    dispatch(actionTypes.COMPANIES_REQUEST, null);
   }, []);
 
   return (
