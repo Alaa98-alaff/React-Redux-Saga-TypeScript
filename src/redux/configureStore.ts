@@ -2,12 +2,13 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import Saga from "./saga/Saga";
 import createSagaMiddleware from "redux-saga";
 import itemsReducer from "./reducers/itemsData";
-import { companiesData } from "./saga/Api";
 import companiesReducer from "./reducers/companiesData";
+import currentItemsReducer from "./reducers/currentItems";
 
 const combinedReducer = combineReducers({
   itemsReducer: itemsReducer,
   companiesReducer: companiesReducer,
+  currentItemsReducer: currentItemsReducer,
 });
 
 const rootReducer = (state: any, action: any) => {

@@ -1,0 +1,10 @@
+@import "../../index.scss";
+
+.page-link {
+  color: inherit !important;
+}
+
+.active {
+  color: #fff !important;
+  background-color: $main-blue !important;
+}
