@@ -1,7 +1,6 @@
 import "./Brands.scss";
 import Checkbox from "@mui/material/Checkbox";
 import { connect } from "react-redux";
-import { useEffect } from "react";
 
 type Props = {
   companies: Array<object>;
@@ -9,9 +8,8 @@ type Props = {
 };
 
 const Brands: React.FC<Props> = ({ companies, items }) => {
-  console.log(companies);
   const brandType = () => {
-    if (companies) {
+    if (companies && items) {
       const brands = companies.map((company: any) => {
         const companiesNumber = items?.filter(
           (item: any) => item.manufacturer === company.slug
