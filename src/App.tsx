@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import Sorting from "./components/Sorting/Sorting";
 import Tags from "./components/Tags/Tags";
 import ProductsSection from "./components/ProductsSection/ProductsSection";
+import BasketBox from "./components/BasketBox/BasketBox";
 import itemsReducer from "./redux/reducers/itemsData";
 
 const App: React.FC = () => {
@@ -22,11 +23,14 @@ const App: React.FC = () => {
         <div className="left-sidebar">
           <Sorting />
           <Brands />
-          <Tags />
+          {/* <Tags /> */}
         </div>
         <main className="">
           <ProductsSection />
         </main>
+        <div className="right-side">
+          <BasketBox />
+        </div>
       </div>
     </div>
   );
