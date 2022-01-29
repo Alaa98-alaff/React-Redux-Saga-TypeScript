@@ -8,9 +8,10 @@ import { useEffect } from "react";
 type Props = {
   items: Array<Object>;
   currentItems: any;
+  brands: Array<Object>;
 };
 
-const ProductsSection: React.FC<Props> = ({ items, currentItems }) => {
+const ProductsSection: React.FC<Props> = ({ items, currentItems, brands }) => {
   return (
     <div className="main-section">
       <h4 className="section-title">Products</h4>
@@ -26,7 +27,10 @@ const ProductsSection: React.FC<Props> = ({ items, currentItems }) => {
           : "test"}
       </div>
       <div className="pagination-container">
-        <PaginatedItems itemsPerPage={16} items={items} />
+        <PaginatedItems
+          itemsPerPage={16}
+          items={brands?.length !== 0 ? brands : items}
+        />
       </div>
     </div>
   );
@@ -36,6 +40,7 @@ const mapStateToProps = (state: any) => {
   return {
     items: state.itemsReducer.items,
     currentItems: state.currentItemsReducer.currentItems,
+    brands: state.brandsReducer.brands,
   };
 };
 

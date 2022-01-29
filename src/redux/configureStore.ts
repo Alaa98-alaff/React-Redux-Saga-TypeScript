@@ -4,11 +4,13 @@ import createSagaMiddleware from "redux-saga";
 import itemsReducer from "./reducers/itemsData";
 import companiesReducer from "./reducers/companiesData";
 import currentItemsReducer from "./reducers/currentItems";
+import brandsReducer from "./reducers/brandsSort";
 
 const combinedReducer = combineReducers({
   itemsReducer: itemsReducer,
   companiesReducer: companiesReducer,
   currentItemsReducer: currentItemsReducer,
+  brandsReducer: brandsReducer,
 });
 
 const rootReducer = (state: any, action: any) => {
