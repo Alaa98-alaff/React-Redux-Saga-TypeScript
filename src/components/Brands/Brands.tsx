@@ -76,7 +76,6 @@ const Brands: React.FC<Props> = ({ companies, items }) => {
   };
 
   const handleAllBrands = () => {
-    console.log(allIsChecked);
     if (allIsChecked) {
       dispatch(actionTypes.BRANDS_ITEMS, items);
     } else {

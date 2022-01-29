@@ -37,6 +37,11 @@
         margin-right: 1.5rem;
       }
 
+      .active {
+        background-color: $main-blue;
+        border: none;
+      }
+
       .type-title {
         text-align: left;
       }

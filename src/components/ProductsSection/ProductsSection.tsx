@@ -3,15 +3,33 @@ import ProductCard from "../ProductCard/ProductCard";
 import PaginatedItems from "../PaginatedItems/PaginatedItems";
 import { connect } from "react-redux";
 import currentItemsReducer from "../../redux/reducers/currentItems";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   items: Array<Object>;
   currentItems: any;
   brands: Array<Object>;
+  sortedItems: Array<Object>;
 };
 
-const ProductsSection: React.FC<Props> = ({ items, currentItems, brands }) => {
+const ProductsSection: React.FC<Props> = ({
+  items,
+  currentItems,
+  brands,
+  sortedItems,
+}) => {
+  const [itemsState, setItemsState] = useState();
+
+  useEffect(() => {
+    if (brands?.length !== 0) {
+      let temp: any = brands;
+      setItemsState(temp);
+    } else {
+      let temp: any = items;
+      setItemsState(temp);
+    }
+  }, [brands, items]);
+
   return (
     <div className="main-section">
       <h4 className="section-title">Products</h4>
@@ -24,13 +42,10 @@ const ProductsSection: React.FC<Props> = ({ items, currentItems, brands }) => {
           ? currentItems.map((el: any) => (
               <ProductCard key={el.added} name={el.name} price={el.price} />
             ))
-          : "test"}
+          : null}
       </div>
       <div className="pagination-container">
-        <PaginatedItems
-          itemsPerPage={16}
-          items={brands?.length !== 0 ? brands : items}
-        />
+        <PaginatedItems itemsPerPage={16} items={itemsState} />
       </div>
     </div>
   );
@@ -41,6 +56,7 @@ const mapStateToProps = (state: any) => {
     items: state.itemsReducer.items,
     currentItems: state.currentItemsReducer.currentItems,
     brands: state.brandsReducer.brands,
+    sortedItems: state.itemsReducer.sortedItems,
   };
 };
 

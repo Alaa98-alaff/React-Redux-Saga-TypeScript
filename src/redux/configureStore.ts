@@ -5,12 +5,14 @@ import itemsReducer from "./reducers/itemsData";
 import companiesReducer from "./reducers/companiesData";
 import currentItemsReducer from "./reducers/currentItems";
 import brandsReducer from "./reducers/brandsSort";
+import sortedItemsReducer from "./reducers/itemsSort";
 
 const combinedReducer = combineReducers({
   itemsReducer: itemsReducer,
   companiesReducer: companiesReducer,
   currentItemsReducer: currentItemsReducer,
   brandsReducer: brandsReducer,
+  sortedItemsReducer: sortedItemsReducer,
 });
 
 const rootReducer = (state: any, action: any) => {

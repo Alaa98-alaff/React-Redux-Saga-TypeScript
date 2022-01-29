@@ -1,20 +1,29 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import ReactPaginate from "react-paginate";
+import { connect } from "react-redux";
 import * as actionTypes from "../../redux/actionTypes";
 import dispatch from "../../redux/dispatch";
+import sortedItemsReducer from "../../redux/reducers/itemsSort";
 import "./PaginatedItems.scss";
 
 interface Props {
   itemsPerPage: number;
   items: any;
+  clicked: Boolean;
+  brands: any;
 }
 
 interface itemsProps {
   currentItems?: any;
 }
 
-const PaginatedItems: React.FC<Props> = ({ itemsPerPage, items }) => {
+const PaginatedItems: React.FC<Props> = ({
+  itemsPerPage,
+  items,
+  clicked,
+  brands,
+}) => {
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
 
@@ -26,7 +35,7 @@ const PaginatedItems: React.FC<Props> = ({ itemsPerPage, items }) => {
     );
 
     setPageCount(Math.ceil(items?.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage, items]);
+  }, [itemOffset, itemsPerPage, items, clicked]);
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * itemsPerPage) % items.length;
@@ -55,4 +64,11 @@ const PaginatedItems: React.FC<Props> = ({ itemsPerPage, items }) => {
   );
 };
 
-export default PaginatedItems;
+const mapStateToProps = (state: any) => {
+  return {
+    clicked: state.itemsReducer.clicked,
+    brands: state.brandsReducer.brands,
+  };
+};
+
+export default connect(mapStateToProps)(PaginatedItems);

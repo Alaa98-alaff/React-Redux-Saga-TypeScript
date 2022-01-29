@@ -19,6 +19,7 @@ const currentItemsReducer = (
 ) => {
   const { type, payload } = action;
   if (type === actionTypes.CURRENT_ITEMS_DATA) {
+    console.log(payload, "currentItems reducer");
     return {
       ...state,
       currentItems: payload,
