@@ -4,6 +4,11 @@
       @content;
     }
   }
+  @if $breakpoint == tab {
+    @media (max-width: 40rem) {
+      @content;
+    }
+  }
   @if $breakpoint == tab-port {
     @media (max-width: 90rem) {
       @content;

@@ -21,6 +21,10 @@ const App: React.FC = () => {
       <Header />
       <div className="main">
         <div className="left-sidebar">
+          <div className="basketBox-phone">
+            <BasketBox />
+          </div>
+
           <Sorting />
           <Brands />
           {/* <Tags /> */}
@@ -28,7 +32,7 @@ const App: React.FC = () => {
         <main className="">
           <ProductsSection />
         </main>
-        <div className="right-side">
+        <div className="basketBox-tab">
           <BasketBox />
         </div>
       </div>

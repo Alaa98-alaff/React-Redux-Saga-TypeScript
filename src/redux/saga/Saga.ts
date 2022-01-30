@@ -29,7 +29,6 @@ export const getItemsDataSaga = function* (action: Action) {
       item.color = randomColor;
     });
 
-    console.log(data, "data");
     yield put(actionData(actionTypes.ITEMS_DATA, data));
   } catch (error) {
     console.log(error);

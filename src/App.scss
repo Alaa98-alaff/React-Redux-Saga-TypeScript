@@ -12,16 +12,12 @@
 html {
   font-size: 62.5%;
 
-  @include respond(phone) {
-    font-size: 55%;
-  }
-
-  @media (max-width: 900px) {
+  @include respond(tab-port) {
     font-size: 50%;
   }
 
-  @media (max-width: 600px) {
-    font-size: 40%;
+  @include respond(phone) {
+    font-size: 32%;
   }
 }
 
@@ -33,10 +29,10 @@ body {
 }
 
 .main {
-  width: 123.2rem;
+  position: relative;
   margin: auto;
   display: flex;
-  // align-items: center;
+  justify-content: center;
 }
 
 .left-sidebar {
@@ -58,8 +54,16 @@ body {
   border-radius: 1rem;
 }
 
-.right-side {
-  width: 29.6rem;
-  height: 33.82rem;
-  margin-top: 4rem;
+.basketBox-phone {
+  margin-bottom: 2.5rem;
+  display: none;
+  @include respond(phone) {
+    display: unset;
+  }
+}
+
+.basketBox-tab {
+  @include respond(phone) {
+    display: none;
+  }
 }

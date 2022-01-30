@@ -2,8 +2,7 @@
 
 .main-basketbox {
   position: relative;
-  max-width: 100%;
-  height: 100%;
+
   border-radius: 0.2rem;
   border: 1rem solid $main-blue;
   background-color: #fff;
@@ -11,6 +10,9 @@
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
+  width: 29.6rem;
+  height: 33.82rem;
+  margin-top: 4rem;
 
   .products {
     height: 22rem;
