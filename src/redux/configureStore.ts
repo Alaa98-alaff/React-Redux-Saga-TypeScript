@@ -7,6 +7,7 @@ import currentItemsReducer from "./reducers/currentItems";
 import brandsReducer from "./reducers/brandsSort";
 import sortedItemsReducer from "./reducers/itemsSort";
 import basketItemsReducer from "./reducers/basketItems";
+import loadingReducer from "./reducers/loading";
 
 const combinedReducer = combineReducers({
   itemsReducer: itemsReducer,
@@ -15,6 +16,7 @@ const combinedReducer = combineReducers({
   brandsReducer: brandsReducer,
   sortedItemsReducer: sortedItemsReducer,
   basketItemsReducer: basketItemsReducer,
+  loadingReducer: loadingReducer,
 });
 
 const rootReducer = (state: any, action: any) => {

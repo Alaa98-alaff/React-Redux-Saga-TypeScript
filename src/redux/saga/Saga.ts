@@ -22,6 +22,7 @@ const actionData = function (type: string, payload: object) {
 
 export const getItemsDataSaga = function* (action: Action) {
   try {
+    yield put(actionData(actionTypes.LOADING_LOCK, { loading: true }));
     const { type, payload } = action;
     const data: Array<Object> = yield call(Api.itemsData);
     data.map((item: any) => {
@@ -30,6 +31,7 @@ export const getItemsDataSaga = function* (action: Action) {
     });
 
     yield put(actionData(actionTypes.ITEMS_DATA, data));
+    yield put(actionData(actionTypes.LOADING_LOCK, { loading: false }));
   } catch (error) {
     console.log(error);
   }
@@ -37,9 +39,12 @@ export const getItemsDataSaga = function* (action: Action) {
 
 export const getCompaniesDataSaga = function* (action: Action) {
   try {
+    yield put(actionData(actionTypes.LOADING_LOCK, { loading: true }));
+
     const { type, payload } = action;
     const data: Array<Object> = yield call(Api.companiesData);
     yield put(actionData(actionTypes.COMPANIES_DATA, data));
+    yield put(actionData(actionTypes.LOADING_LOCK, { loading: false }));
   } catch (e) {
     console.log(e);
   }
