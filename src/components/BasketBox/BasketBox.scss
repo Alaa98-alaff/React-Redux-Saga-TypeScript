@@ -16,6 +16,24 @@
     height: 22rem;
     overflow: auto;
 
+    .no-items {
+      position: absolute;
+      width: 90%;
+
+      top: 40%;
+      left: 100%;
+      transform: translate(-100%, -40%);
+
+      h2 {
+        font-weight: 600;
+      }
+
+      h3 {
+        font-weight: 600;
+        font-size: 1.4rem;
+      }
+    }
+
     .product-container {
       position: relative;
       width: 23.1rem;

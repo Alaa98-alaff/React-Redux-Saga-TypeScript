@@ -6,6 +6,7 @@ import companiesReducer from "./reducers/companiesData";
 import currentItemsReducer from "./reducers/currentItems";
 import brandsReducer from "./reducers/brandsSort";
 import sortedItemsReducer from "./reducers/itemsSort";
+import basketItemsReducer from "./reducers/basketItems";
 
 const combinedReducer = combineReducers({
   itemsReducer: itemsReducer,
@@ -13,6 +14,7 @@ const combinedReducer = combineReducers({
   currentItemsReducer: currentItemsReducer,
   brandsReducer: brandsReducer,
   sortedItemsReducer: sortedItemsReducer,
+  basketItemsReducer: basketItemsReducer,
 });
 
 const rootReducer = (state: any, action: any) => {

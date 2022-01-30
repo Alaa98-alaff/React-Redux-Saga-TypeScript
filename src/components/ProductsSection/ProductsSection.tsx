@@ -39,8 +39,13 @@ const ProductsSection: React.FC<Props> = ({
       </div>
       <div className="products-section">
         {currentItems
-          ? currentItems.map((el: any) => (
-              <ProductCard key={el.added} name={el.name} price={el.price} />
+          ? currentItems.map((el: any, index: number) => (
+              <ProductCard
+                key={el.added}
+                name={el.name}
+                price={el.price}
+                index={index}
+              />
             ))
           : null}
       </div>
