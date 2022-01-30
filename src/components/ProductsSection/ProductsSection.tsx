@@ -2,7 +2,6 @@ import "./ProductsSection.scss";
 import ProductCard from "../ProductCard/ProductCard";
 import PaginatedItems from "../PaginatedItems/PaginatedItems";
 import { connect } from "react-redux";
-import currentItemsReducer from "../../redux/reducers/currentItems";
 import { useEffect, useState } from "react";
 
 type Props = {

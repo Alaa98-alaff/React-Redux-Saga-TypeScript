@@ -19,8 +19,6 @@ const sortedItemsReducer = (
 ) => {
   const { type, payload } = action;
   if (type === actionTypes.SORTED_ITEMS_DATA) {
-    // console.log(payload, "payload reducer sort");
-
     return {
       ...state,
       sortedItems: payload,

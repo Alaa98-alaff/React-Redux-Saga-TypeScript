@@ -22,12 +22,11 @@ const ProductCard: React.FC<Props> = ({
   items,
   currentItems,
 }) => {
+  const [clicked, isClicked] = useState(true);
+
   const handleAddItem = () => {
-    const payload = {
-      addedItems: [currentItems[index]],
-      currentAdded: [currentItems[index]],
-    };
-    dispatch(actionTypes.ADD_ITEM_ID, payload);
+    dispatch(actionTypes.ADD_ITEMS_BASKET, currentItems[index]);
+    dispatch(actionTypes.BASKET_ADD_CLICKED, null);
   };
 
   return (

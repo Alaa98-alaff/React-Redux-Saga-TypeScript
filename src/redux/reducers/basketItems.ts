@@ -3,6 +3,7 @@ import * as actionTypes from "../actionTypes";
 interface itemsState {
   addedItems: any;
   currentAdded: any;
+  isClicked: boolean;
 }
 
 type Action = {
@@ -13,6 +14,8 @@ type Action = {
 const initialState = {
   addedItems: [],
   currentAdded: [],
+  isClicked: false,
+  totalPrice: 0,
 };
 
 const basketItemsReducer = (
@@ -20,16 +23,67 @@ const basketItemsReducer = (
   action: Action
 ) => {
   let { type, payload } = action;
-  if (type === actionTypes.ADD_ITEM_ID) {
-    let ids = state.addedItems;
-    let arr = [];
+  if (type === actionTypes.ADD_ITEMS_BASKET) {
+    let items = state.addedItems;
 
-    arr.push(...ids, ...payload.addedItems);
+    if (items.length === 0) {
+      payload.amount = 1;
+
+      items.push(payload);
+    } else {
+      let itemsIndex = items?.findIndex((item: any, index: number) => {
+        return item.added === payload.added;
+      });
+
+      if (itemsIndex !== -1) {
+        items[itemsIndex].amount = items[itemsIndex].amount + 1;
+      } else {
+        payload.amount = 1;
+        items.push(payload);
+      }
+    }
+
+    let total = 0;
+
+    items.forEach((el: any) => {
+      total += el.amount * el.price;
+    });
 
     return {
       ...state,
-      addedItems: arr,
-      currentAdded: payload.currentAdded,
+      addedItems: items,
+      totalPrice: total,
+    };
+  } else if (type === actionTypes.DELETE_ITEMS_BASKET) {
+    let items = state.addedItems;
+
+    let itemsIndex = items?.findIndex((item: any, index: number) => {
+      return item.added === payload.added;
+    });
+
+    if (itemsIndex !== -1) {
+      if (items[itemsIndex].amount === 1) {
+        items.splice(itemsIndex, 1);
+      } else {
+        items[itemsIndex].amount = items[itemsIndex].amount - 1;
+      }
+    }
+
+    let total = 0;
+
+    items.forEach((el: any) => {
+      total += el.amount * el.price;
+    });
+    return {
+      ...state,
+      addedItems: items,
+      totalPrice: total,
+    };
+  } else if (type === actionTypes.BASKET_ADD_CLICKED) {
+    let isClicked = state.isClicked;
+    state.isClicked = !isClicked;
+    return {
+      ...state,
     };
   } else {
     return state;
