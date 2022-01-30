@@ -13,6 +13,7 @@ interface Props {
   currentItems: any;
   brands: Array<Object>;
   sortedItems: Array<Object>;
+  bcColor: any;
 }
 
 const ProductCard: React.FC<Props> = ({
@@ -21,9 +22,8 @@ const ProductCard: React.FC<Props> = ({
   index,
   items,
   currentItems,
+  bcColor,
 }) => {
-  const [clicked, isClicked] = useState(true);
-
   const handleAddItem = () => {
     dispatch(actionTypes.ADD_ITEMS_BASKET, currentItems[index]);
     dispatch(actionTypes.BASKET_ADD_CLICKED, null);
@@ -32,15 +32,18 @@ const ProductCard: React.FC<Props> = ({
   return (
     <div className="productcard-container">
       <div className="image-container">
-        <img className="image-container__image" src="" alt="" />
+        <div
+          className="image-container__image"
+          style={{ background: `${bcColor}` }}
+        ></div>
       </div>
       <div className="product-description">
         <div className="product-description__price">₺ {price}</div>
         <div className="product-description__name">{name}</div>
       </div>
-      <button className="addproduct-btn" onClick={handleAddItem}>
+      <div className="addproduct-btn" onClick={handleAddItem}>
         Add
-      </button>
+      </div>
     </div>
   );
 };

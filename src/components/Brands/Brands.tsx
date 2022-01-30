@@ -124,12 +124,12 @@ const Brands: React.FC<Props> = ({ companies, items }) => {
       <p className="main-brands__title">Brands</p>
       <div className="brands-container">
         <div className="brands-container__brand-search-container">
-          <input
+          {/* <input
             placeholder="Search brand"
             className="brands-input"
             type="text"
             name="fname"
-          />
+          /> */}
         </div>
         <div className="brands-types">
           <div className="brands-types__type">

@@ -23,7 +23,13 @@ const actionData = function (type: string, payload: object) {
 export const getItemsDataSaga = function* (action: Action) {
   try {
     const { type, payload } = action;
-    const data: object = yield call(Api.itemsData);
+    const data: Array<Object> = yield call(Api.itemsData);
+    data.map((item: any) => {
+      var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      item.color = randomColor;
+    });
+
+    console.log(data, "data");
     yield put(actionData(actionTypes.ITEMS_DATA, data));
   } catch (error) {
     console.log(error);
@@ -33,7 +39,7 @@ export const getItemsDataSaga = function* (action: Action) {
 export const getCompaniesDataSaga = function* (action: Action) {
   try {
     const { type, payload } = action;
-    const data: object = yield call(Api.companiesData);
+    const data: Array<Object> = yield call(Api.companiesData);
     yield put(actionData(actionTypes.COMPANIES_DATA, data));
   } catch (e) {
     console.log(e);

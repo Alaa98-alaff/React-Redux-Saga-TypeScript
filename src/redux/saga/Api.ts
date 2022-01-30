@@ -1,6 +1,8 @@
 export const itemsData = async () => {
   try {
-    const response = await fetch("http://localhost:8000/items");
+    const response = await fetch(
+      "https://typescrip-redux-saga-database.herokuapp.com/items"
+    );
     const data = await response.json();
     return data;
   } catch (e) {
@@ -10,7 +12,9 @@ export const itemsData = async () => {
 
 export const companiesData = async () => {
   try {
-    const response = await fetch("http://localhost:8000/companies");
+    const response = await fetch(
+      "https://typescrip-redux-saga-database.herokuapp.com/companies"
+    );
     const data = await response.json();
     return data;
   } catch (e) {

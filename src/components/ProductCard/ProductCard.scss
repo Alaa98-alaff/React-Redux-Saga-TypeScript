@@ -17,7 +17,7 @@
     &__image {
       width: 9.2rem;
       height: 9.2rem;
-      background-color: grey;
+      // background-color: grey;
     }
   }
 
@@ -49,5 +49,17 @@
     color: #fff;
     position: absolute;
     bottom: 0;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  .addproduct-btn:hover {
+    background-color: #2a8fad;
+  }
+
+  .addproduct-btn:active {
+    background-color: rgba(128, 128, 128, 0.466);
   }
 }

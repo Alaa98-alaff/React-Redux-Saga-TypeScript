@@ -12,7 +12,7 @@ const Basket: React.FC<Props> = ({ totalPrice }) => {
       <div className="basket-container__basket-logo">
         <img className="basket-logo" src={basket} alt="Basket" />
       </div>
-      <div className="basket-container__total">₺ {totalPrice}</div>
+      <div className="basket-container__total">₺ {totalPrice.toFixed(2)}</div>
     </div>
   );
 };
